@@ -1,5 +1,5 @@
-## JavaScript30
-# Day 1 : 7 keys JS Piano
+# JavaScript30
+## Day 1 : 7 keys JS Piano
 
 
 
