@@ -4,8 +4,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Piano ES6</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <!--Français    do ré mi    fa  sol la  si -->
+    <!--Anglais     C  D  E     F   G   A   B  -->
+
+    <div class="keys">
+        <div data-key="67" class="key">
+                <kbd>C</kbd>
+                <span class="sound">DO</span>
+        </div>
+        <div data-key="68" class="key">
+                <kbd>D</kbd>
+                <span class="sound">RE</span>
+        </div>
+        <div data-key="69" class="key">
+                <kbd>E</kbd>
+                <span class="sound">MI</span>
+        </div>
+        <div data-key="70" class="key">
+                <kbd>F</kbd>
+                <span class="sound">FA</span>
+        </div>
+        <div data-key="71" class="key">
+                <kbd>G</kbd>
+                <span class="sound">SOL</span>
+        </div>
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">LA</span>
+        </div>
+        <div data-key="66" class="key">
+            <kbd>B</kbd>
+            <span class="sound">SI</span>
+        </div>
+    </div>
+
+    <h1><a href="https://javascript30.com/">Day 1</a></h1>
+
+    <!--Origin sounds: https://virtualpiano.net/ -->
+    <audio data-key="65"src="keynotes/la.mp3"></audio>
+    <audio data-key="66"src="keynotes/si.mp3"></audio>
+    <audio data-key="67"src="keynotes/do.mp3"></audio>
+    <audio data-key="68"src="keynotes/re.mp3"></audio>
+    <audio data-key="69"src="keynotes/mi.mp3"></audio>
+    <audio data-key="70"src="keynotes/fa.mp3"></audio>
+    <audio data-key="71"src="keynotes/sol.mp3"></audio>
+
+    <script>
+
+        function removeTransition(e){
+            if(e.propertyName !== 'transform') return;
+            this.classList.remove('playing');          
+        }
+
+
+        function touche(e){
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+            if(!audio) return;
+            audio.currentTime = 0; //stop the current sound
+            audio.play();
+            key.classList.add('playing');
+        }
+
+
+
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+        
+        window.addEventListener('keydown', touche);
+    </script>
+
 </body>
 </html>

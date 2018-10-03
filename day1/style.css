@@ -1,0 +1,57 @@
+html { 
+    background: url(orion-nebula.jpg) no-repeat center center fixed; /*https://pixabay.com/fr/n%C3%A9buleuse-d-orion-11107/*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.keys{
+    text-align: center;
+    color: black;
+    line-height: 200px;
+    position: relative;
+    width: 60%;
+    height: 400px;
+    margin: 150px auto;
+}
+
+.key{
+    float: left;
+    width: 14%;
+    height: 100%;
+    border-right: 2px transparent solid;
+    background-color: rgba(248, 246, 246, 0.575);
+    transition: background-color 0.2s;
+    transition: transform 0.2s;
+}
+
+.playing{
+    transform: scale(0.98);
+    background-color:rgba(200, 200, 200, 0.5);
+    /*background-image: linear-gradient(aliceblue, grey);*/
+}
+
+kbd {
+    display: block;
+    font-size: 4rem;
+  }
+  
+  .sound {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #012f3d;
+  }
+
+h1{
+    text-align: center;
+    font-size: 5em;
+}
+
+a{
+    color: rgba(200, 200, 200, 0.5);
+    text-decoration: none;
+    
+}
