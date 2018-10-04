@@ -53,30 +53,7 @@
     <audio data-key="70"src="keynotes/fa.mp3"></audio>
     <audio data-key="71"src="keynotes/sol.mp3"></audio>
 
-    <script>
-
-        function removeTransition(e){
-            if(e.propertyName !== 'transform') return;
-            this.classList.remove('playing');          
-        }
-
-
-        function touche(e){
-            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-            if(!audio) return;
-            audio.currentTime = 0; //stop the current sound
-            audio.play();
-            key.classList.add('playing');
-        }
-
-
-
-        const keys = document.querySelectorAll('.key');
-        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-        
-        window.addEventListener('keydown', touche);
-    </script>
+    <script src="js.js"></script>
 
 </body>
 </html>
