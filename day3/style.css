@@ -1,0 +1,54 @@
+:root {
+    --red:5;
+    --green:5;
+    --blue:5;
+}
+
+
+html {
+    background: rgb(var(--red), var(--green), var(--blue)) url("wallpaper.png");
+    background-size: cover;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.controls{
+    float: left;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 10px 30px 25px black;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.red{
+    color: rgb(var(--red), 0, 0);
+}
+
+.green{
+    color: rgb(0, var(--green), 0);
+}
+.blue{
+    color: rgb(0, 0, var(--blue))
+}
+
+h1 {
+    box-shadow: 0px 10px 30px 25px black;
+	text-align: center;
+	font-size: 5rem;
+	position: absolute;
+	width: 100%;
+	background:  rgba(255, 255, 255, 0.8);
+	bottom: 20%;
+}
+
+a {
+	color: rgba(0, 32, 37);
+	text-decoration: none;
+}
+
+
