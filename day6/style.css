@@ -1,5 +1,5 @@
 :root {
-  --bg:5;
+  --hexa:5;
 }
 
 html {
@@ -28,6 +28,8 @@ input {
 .search-form {
   max-width: 400px;
   margin: 50px 10%;
+  position: fixed;
+  height: 60%;
 }
 
 input.search {
@@ -41,41 +43,49 @@ input.search {
   z-index: 2;
   font-size: 40px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  border: none;
 }
 
 .colors {
   margin: 0;
   padding: 0;
-  position: relative;
+  position: absolute;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
   /*perspective: 20px;*/
 }
 
 .colors li {
   background: white;
   list-style: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   margin: 0;
   padding: 20px;
-  transition: background 0.2s;
   display: flex;
   justify-content: space-between;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
 .colors li:nth-child(even) {
-  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+  /*transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);*/
 }
 
 .colors li:nth-child(odd) {
-  transform: perspective(100px) rotateX(-3deg) translateY(3px);
+  /*transform: perspective(100px) rotateX(-3deg) translateY(3px);*/
 }
 
 span.population {
   font-size: 15px;
 }
 
-.hl {
-  background: #ffc600;
+.hexa {
+	margin: 16% 46%;
+	text-align: center;
+	position: absolute;
+	font-size: 6em;
+	font-weight: bold;
+  text-shadow: 6px 6px 10px black;
 }
 
 h1 {
@@ -84,7 +94,7 @@ h1 {
   position: absolute;
   width: 100%;
   background:  rgba(255, 255, 255, 0.2);
-  bottom: 20%;
+  bottom: 20px;
 }
 
 a {

@@ -9,10 +9,14 @@ fetch(endpoint)
 
 
 function find(input){
-    const exp = new RegExp(input, 'gi');
-    return colors.filter(c =>{
-        return c.name.match(exp) || c.hexa.match(exp);
-    });
+    if(input){
+        const exp = new RegExp(input, 'gi');
+        return colors.filter(c =>{
+            return c.name.match(exp) || c.hexa.match(exp);
+        });
+    }else{
+        return [];
+    }
 }
 
 //https://www.rapidtables.com/convert/color/rgb-to-hsv.html
@@ -32,22 +36,29 @@ function hexaToRGB(hexa){
     } : null;
 }
 
+function displayHexa(){
+    const hexaDiv = document.querySelector('.hexa');
+    hexaDiv.innerHTML = this.id;
+    hexaDiv.style.setProperty("color", this.id + "99");
+}
+
 function displayColors(){
     const match = find(this.value);
     const html = match.map(c => {
         rgb = hexaToRGB(c.hexa);
         textColor = getColorValue(rgb) > 0.75 ? "#000" : "#FFF"
         return `
-            <li style="background:rgb(${rgb.r}, ${rgb.g}, ${rgb.b}); color:${textColor}"> 
+            <li class="color" id="${c.hexa}" style="background:rgb(${rgb.r}, ${rgb.g}, ${rgb.b}); color:${textColor}"> 
                 ${c.name}
             </li>
         `;
     }).join('');
+    const suggestions = document.querySelector('.colors');
     suggestions.innerHTML = html;
+    const color = document.querySelectorAll('.color');
+    color.forEach(d => d.addEventListener('click', displayHexa));
 }
 
 const searchInput = document.querySelector('.search');
-const suggestions = document.querySelector('.colors');
 
-searchInput.addEventListener('change', displayColors);
 searchInput.addEventListener('keyup', displayColors);
